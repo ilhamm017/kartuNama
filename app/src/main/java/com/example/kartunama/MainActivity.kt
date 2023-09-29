@@ -22,12 +22,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.AlignmentLine
 import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.kartunama.ui.theme.KartuNamaTheme
 
 class MainActivity : ComponentActivity() {
@@ -58,16 +61,23 @@ fun Profil() {
             painter = painterResource(id = R.drawable.foto_profil),
             contentDescription = "foto profil",
             Modifier
-                .size(80.dp)
+                .size(120.dp)
                 .clip(CircleShape)
         )
         Spacer(modifier = Modifier.size(8.dp))
         Text(
-            text = "Ilham Muliawan"
+            text = "Ilham Muliawan",
+            style = TextStyle(
+                fontSize = 30.sp
+            )
         )
         Spacer(modifier = Modifier.size(8.dp))
         Text(
-            text = "Android Developer"
+            text = "Android Developer",
+            style = TextStyle(
+                fontSize = 18.sp,
+                color = Color(0xFF006400)
+            )
         )
     }
 }
