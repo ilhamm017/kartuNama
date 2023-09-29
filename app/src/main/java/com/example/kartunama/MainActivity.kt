@@ -84,49 +84,36 @@ fun Profil() {
 
 @Composable
 fun Contact() {
+    val contactInfo = listOf(
+        ContactItem(R.drawable.telephone, "+6285156109604", "icon Telephone"),
+        ContactItem(R.drawable.share, "@ilhamm017", "icon share"),
+        ContactItem(R.drawable.email, "ilhammuliawan26@gmail.com", "icon email")
+    )
+
     Column(
         modifier = Modifier.padding(12.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.Start
     ) {
-        Row(
-            modifier = Modifier.padding(8.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.telephone),
-                contentDescription = "telephone icon",
-                modifier = Modifier.size(14.dp),
-            )
-            Spacer(modifier = Modifier.size(8.dp))
-            Text(text = "nomor hp")
-        }
-        Row(
-            modifier = Modifier.padding(8.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.share),
-                contentDescription = "Share Icon",
-                modifier = Modifier.size(14.dp)
-            )
-            Spacer(modifier = Modifier.size(8.dp))
-            Text(text = "Sosial Media")
-        }
-        Row(
-            modifier = Modifier.padding(8.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.email),
-                contentDescription = "Email Icon",
-                modifier = Modifier.size(13.dp)
-            )
-            Spacer(modifier = Modifier.size(8.dp))
-            Text(text = "email")
+        contactInfo.forEach { item ->
+            Row(
+                modifier = Modifier
+                    .padding(8.dp),
+//                    .fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Image(
+                    painter = painterResource(id = item.icon),
+                    contentDescription = item.contentDescription,
+                    modifier = Modifier.size(24.dp)
+                )
+                Spacer(modifier = Modifier.size(16.dp))
+                Text(text = item.text)
+            }
         }
     }
 }
+data class  ContactItem(val icon: Int, val text: String, val contentDescription: String = "")
 
 @Composable
 fun Home() {
